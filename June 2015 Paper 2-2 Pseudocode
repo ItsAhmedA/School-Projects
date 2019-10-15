@@ -1,0 +1,92 @@
+TASK 1
+
+A school keeps records of the weights of each pupil. The weight, in kilograms, of each pupil is recorded
+on the first day of term. Input and store the weights and names recorded for a class of 30 pupils. You
+must store the weights in a one-dimensional array and the names in another one-dimensional array.
+All the weights must be validated on entry and any invalid weights rejected. You must decide your own
+validation rules. You may assume that the pupils’ names are unique. Output the names and weights of
+the pupils in the class.
+
+TASK 2
+
+The weight, in kilograms, of each pupil is recorded again on the last day of term. Calculate and store
+the difference in weight for each pupil.
+
+TASK 3
+
+For those pupils who have a difference in weight of more than 2.5 kilograms, output, with a suitable
+message, the pupil’s name, the difference in weight and whether this is a rise or a fall.
+
+// Different counters
+
+A = 1 
+B = 1 
+C = 1 
+D = 1 
+
+// Variables and Arrays
+
+Weightvalid = False 
+Weightvalidafter = False 
+DECLARE students : ARRAY[1:30] OF STRING
+DECLARE Studentsweight : ARRAY[1:30] OF REAL 
+DECLARE Studentsweightafter : ARRAY[1:30] OF REAL 
+DECLARE Studentsdifference : ARRAY[1:30] OF REAL 
+
+// Input at start of month
+
+Repeat 
+  Output "Enter the students name" 
+  Input name 
+  Studentsn[A] <- name 
+  Repeat 
+    Output "Enter Students weight" 
+    Input weight 
+    If weight < 100 OR weight > 0 Then 
+      Studentsweight <- weight 
+      Weightvalid = True 
+    Else 
+      Output "Error" 
+  Until Weightvalid = True 
+  A = A + 1 
+Until A = 30 
+
+// Output of Names and Weights
+
+Repeat 
+  Output Students[B] 
+  Output Studentsweight[B] 
+  B = B + 1 
+Until B = 3
+
+// Input at end of month
+
+Repeat 
+  Repeat 
+    Output "Enter Students weight" 
+    Input weight 
+    If weight < 100 OR weight > 0 Then 
+      Studentsweightafter <- weight 
+      Weightvalidafter = True 
+    Else 
+      Output "Error" 
+   Until Weightvalidafter = True 
+   C = C + 1 
+Until C = 30 
+
+// Output at end of month
+
+Repeat 
+  Studentdifference[D] = Studentsweightafter[D] - Studentsweight[D] 
+  If Studentdifference[D] > 2.5 Then 
+    Output Students[D] 
+    Output Studentsdifference[D] 
+  Else
+   If Studentdiffernce[D] >= 2.5 Then 
+    Output "Rise" 
+   Else  
+    Output "Fall" 
+   ENDIF 
+  ENDIF
+D = D + 1
+Until D = 30
