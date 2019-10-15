@@ -1,0 +1,42 @@
+Hi = -10000 
+Dayhi = 0 
+Low = 10000 
+Daylow = 0 
+A = 1 
+Totalmidday = 0 
+Totalmidnight = 0 
+DECLARE midday: ARRAY [1:30] OF DECIMAL 
+DECLARE midnight: ARRAY [1:30] OF DECIMAL 
+
+Repeat 
+  OUTPUT 'Enter midday temperature' 
+  INPUT tempday 
+  OUTPUT 'Enter midnight temperature' 
+  INPUT tempnight 
+  IF (tempday > -50 and tempday < 60) AND (tempnight > -50 and tempnight < 60 THEN 
+    Totalmidday = Totalmidday + 1 
+    Totalmidnight = Totalmidnight + 1 
+    IF tempmidday > Hi THEN 
+      Hi <-- tempmidday 
+      Dayhi <-- A 
+    Else
+      IF tempmidnight < Low THEN 
+        Low <-- tempmidnight 
+         Daylow <-- A 
+      ENDIF
+     ENDIF
+     midday[A] <-- tempday 
+     midnight[A] <-- tempnight 
+     A = A + 1 
+  ELSE  
+    OUTPUT 'Invalid' 
+ENDIF 
+Until A = 30 
+
+Avgmidday = Totalmidday / A 
+Avgmidnight = Totalmidnight / A 
+
+OUTPUT Avgmidday
+OUTPUT Avgmidnight
+OUTPUT "The temperature for the highest midday was " , Hi , " It was the " , Dayhi , " Day." 
+OUTPUT "The temperature for the lowest midnight was " , Low , " It was the " , Daylow , " Day." 
